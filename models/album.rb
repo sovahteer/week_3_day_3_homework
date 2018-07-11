@@ -48,10 +48,10 @@ class Album
 
   def find_albums_by(artist)
     sql = "SELECT * FROM albums WHERE artist_id = $1"
-    values = [ @id ]
+    values = [ id ]
     albums_by = SqlRunner.run(sql, values)
     return albums_by.map{ |artists_by_hash|
-    Album.new(albums_by_hash) }
+      Album.new(albums_by_hash) }
   end
 
   def self.find(id)
